@@ -1,0 +1,1022 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY FONT'U: Genel Metinler ve Paragraflar için Truculenta */
+body {
+    font-family: 'Truculenta', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* BAŞLIK FONTU: H1, H2, H3... için Lexend Giga seçildi (daha ince görünüm için) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lexend Giga', sans-serif; 
+    text-transform: uppercase;
+    font-weight: 500; 
+}
+
+/* HEADER STİLLERİ (Sabit Konum) */
+header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* JS İLE EKLENECEK GİZLENME SINIFI (AKILLI HEADER) */
+header.hidden {
+    transform: translateY(-100%);
+}
+
+.header-container {
+    max-width: 1300px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none; 
+}
+
+.logo img {
+    height: 50px; 
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h1 {
+    font-size: 22px;
+    color: #0D5F6F; 
+    letter-spacing: 1px;
+    font-weight: 700; 
+    white-space: nowrap; 
+}
+
+
+.logo-text span {
+    font-size: 12px;
+    color: #57C785;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Truculenta', sans-serif;
+}
+
+/* NAVİGASYON KURALLARI VE ÇİZGİ DÜZELTMESİ */
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    overflow: hidden; 
+    flex-grow: 1; 
+    justify-content: flex-end; 
+}
+
+nav a {
+    font-family: 'Lexend Giga', sans-serif; 
+    text-decoration: none;
+    color: #0D5F6F;
+    font-weight: 500;
+    font-size: 14px; 
+    transition: all 0.3s ease;
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 5px; 
+}
+
+nav a:hover {
+    color: #57C785;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 50%; 
+    width: 0; 
+    height: 2px;
+    background: linear-gradient(90deg, #2A7B9B 0%, #57C785 50%, #EDDD53 100%);
+    transition: all 0.3s ease;
+    transform: translateX(-50%); 
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.contact-btn {
+   font-family: 'Orbitron', sans-serif; 
+   background: #70bacc;
+   color: white;
+   padding: 12px 28px;
+   border-radius: 30px;
+   text-decoration: none;
+   font-weight: 600;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 4px 15px rgba(42, 123, 155, 0.3);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(42, 123, 155, 0.4);
+}
+
+/* ------------------------------------------- */
+/* HERO SLIDER STİLLERİ */
+/* ------------------------------------------- */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 550px; 
+    overflow: hidden;
+}
+
+.slides-container {
+    width: 100%; 
+    height: 100%;
+    position: relative; 
+}
+
+.slide {
+    width: 100%; 
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5); 
+    
+    position: absolute; 
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity 0.8s ease-in-out, filter 0.5s ease; 
+}
+
+.slide:first-child {
+    opacity: 1;
+}
+
+.hero-slider:hover .slide {
+    filter: brightness(0.6); 
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50; 
+    text-align: center;
+}
+
+.hero-text-box {
+    max-width: 800px; 
+    padding: 20px; 
+    animation: fadeInScale 1s ease-out; 
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-text-box h2 {
+    font-size: 3.8rem; 
+    margin-bottom: 25px; 
+    line-height: 1.1;
+    color: #57C785; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+    font-weight: 500; 
+}
+
+.hero-text-box p {
+    font-family: 'Truculenta', sans-serif; 
+    color: white; 
+    font-size: 1.6rem; 
+    line-height: 1.6;
+    margin-bottom: 40px; 
+    font-weight: 500;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6); 
+}
+
+.highlight {
+    color: #EDDD53; 
+    font-weight: 700;
+}
+
+/* HİZMETLERİMİ İNCELE BUTONU (HERO) - YENİ DİKDÖRTGEN STİLİ */
+.cta-btn {
+    font-family: 'Lexend Giga', sans-serif; 
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #57C785; 
+    color: white;
+    
+    padding: 12px 35px; /* Dikey boşluğu azalttık (ince görünüm) */
+    border: 2px solid #57C785; 
+    border-radius: 4px; /* Köşeleri keskinleştirdik */
+    
+    text-decoration: none;
+    font-weight: 700; 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(87, 199, 133, 0.4);
+}
+
+.cta-btn:hover {
+    background: #0D5F6F; /* Hover'da arka planı koyu yaptık */
+    color: #57C785; 
+    border-color: #0D5F6F; 
+    
+    transform: translateY(-3px); /* HAFİF YÜKSELME EFEKTİ */
+    
+    box-shadow: 0 6px 15px rgba(13, 95, 111, 0.6); 
+}
+
+/* ------------------------------------------- */
+/* HİZMETLER BÖLÜMÜ STİLLERİ */
+/* ------------------------------------------- */
+
+.hizmetler-alani {
+    padding: 80px 40px;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0D5F6F;
+    margin-bottom: 10px;
+}
+
+.section-subtext {
+    text-align: center;
+    /* GÜNCELLENDİ: DAHA OKUNAKLI FONT */
+    font-family: 'Reddit Sans Condensed', sans-serif; 
+    font-size: 1.3rem; 
+    font-weight: 500; 
+    
+    color: #b49e9e;
+    margin-bottom: 60px;
+}
+
+/* HİZMET BLOKLARI GENEL STİLİ */
+.hizmet-blok {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    /* PARLAMA EFEKTİ İÇİN GÖLGE EKLENDİ/GÜNCELLENDİ */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 0 0 0px #57C785; 
+    transition: transform 0.3s ease, box-shadow 0.4s ease-out; 
+    border: 1px solid #eee;
+}
+
+/* MAUSE ÜZERİNE GELİNCE PARLAMA EFEKTİ */
+.hizmet-blok:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 15px 5px #57C785; 
+}
+
+.hizmet-blok.reverse {
+    flex-direction: row-reverse;
+}
+
+.hizmet-gorsel {
+    flex: 0 0 40%; 
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hizmet-gorsel i {
+    font-size: 80px; 
+    color: #57C785; 
+    padding: 20px;
+    border: 3px solid #57C785;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0fff4;
+}
+
+/* METİN ALANI STİLİ */
+.hizmet-metin {
+    flex: 1; 
+    padding: 20px 0;
+}
+
+.hizmet-metin h3 {
+    font-size: 1.8rem;
+    color: #0D5F6F;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.hizmet-metin p {
+    /* GÜNCELLENDİ: KUTU İÇİ YAZI FONTU */
+    font-family: 'Reddit Sans Condensed', sans-serif; 
+    color: #333;
+    font-size: 1.15rem; 
+    font-weight: 500; 
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.hizmet-detay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #57C785;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.hizmet-detay-btn:hover {
+    color: #0D5F6F;
+}
+
+/* ------------------------------------------- */
+/* YENİ: HAKKIMDA BÖLÜMÜ STİLLERİ */
+/* ------------------------------------------- */
+
+.hakkimda-alani {
+    padding: 80px 40px;
+    background-color: #ffffff; /* Beyaz arka plan */
+}
+
+.hakkimda-icerik {
+    display: flex;
+    align-items: center;
+    gap: 70px; /* Bloklar arası mesafe */
+    margin-top: 40px;
+}
+
+/* GÖRSEL BLOK STİLİ */
+.hakkimda-gorsel {
+    flex: 0 0 45%; 
+    max-width: 45%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hakkimda-gorsel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease; 
+}
+
+.hakkimda-gorsel:hover img {
+    transform: scale(1.05);
+}
+
+/* METİN BLOK STİLİ */
+.hakkimda-metin {
+    flex: 1; 
+    padding: 20px 0;
+}
+
+.hakkimda-metin h3 {
+    font-size: 2rem;
+    color: #0D5F6F;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hakkimda-metin p {
+    /* Hizmet metinleriyle aynı fontu kullanıyoruz */
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.imza {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    font-family: 'Lexend Giga', sans-serif;
+    font-size: 1rem;
+    color: #57C785;
+    font-weight: 700;
+}
+
+.imza i {
+    color: #0D5F6F;
+}
+/* ------------------------------------------- */
+/* 🔥 YENİ: PORTFOLYO/BAŞARI HİKAYELERİ BÖLÜMÜ 🔥 */
+/* ------------------------------------------- */
+
+.portfolyo-alani {
+    padding: 80px 40px;
+    background-color: #f8f8f8;
+}
+
+.hikaye-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 eşit sütun */
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.hikaye-kart {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.hikaye-kart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hikaye-gorsel {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+}
+
+.hikaye-gorsel .etiket {
+    font-family: 'Lexend Giga', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Etiket Renkleri */
+.etiket.fizyo { background-color: #0D5F6F; }
+.etiket.fitness { background-color: #57C785; }
+.etiket.coaching { background-color: #EDDD53; color: #333; }
+
+.hikaye-metin {
+    padding: 20px;
+}
+
+.hikaye-metin h4 {
+    font-size: 1.2rem;
+    color: #0D5F6F;
+    margin-bottom: 10px;
+}
+
+.hikaye-metin p {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.hikaye-metin .kisaltma {
+    display: block;
+    margin-top: 5px;
+    font-weight: 700;
+    color: #333;
+    font-style: normal;
+}
+
+
+/* MÜŞTERİ YORUMLARI STİLLERİ */
+.yorumlar-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #0D5F6F;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ddd;
+}
+
+.yorumlar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.yorum-kart {
+    background-color: #fff;
+    padding: 30px;
+    border-left: 5px solid #57C785;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.yorum-kart i {
+    font-size: 2rem;
+    color: #57C785;
+    margin-bottom: 15px;
+}
+
+.yorum-kart p {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.yorum-imza strong {
+    font-family: 'Lexend Giga', sans-serif;
+    color: #0D5F6F;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE: Portfolyo ve Yorumlar */
+@media (max-width: 968px) {
+    .hikaye-grid,
+    .yorumlar-grid {
+        grid-template-columns: 1fr; /* Mobil ve tablet görünümde tek sütun */
+    }
+
+    .portfolyo-alani {
+        padding: 60px 20px;
+    }
+}
+/* ------------------------------------------- */
+/* 🔥 YENİ: İLETİŞİM BÖLÜMÜ STİLLERİ 🔥 */
+/* ------------------------------------------- */
+
+.iletisim-alani {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #0D5F6F 0%, #1a7e93 100%); /* Koyu Mavi-Yeşil Ton */
+    color: white;
+}
+
+.iletisim-alani .section-heading {
+    color: #fff;
+}
+
+.iletisim-alani .section-subtext {
+    color: #c0e0e3;
+    font-size: 1.2rem;
+}
+
+.iletisim-icerik {
+    display: flex;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+/* İLETİŞİM BİLGİLERİ (SOL BLOK) */
+.iletisim-bilgileri {
+    flex: 1;
+}
+
+.iletisim-bilgileri h3 {
+    font-size: 2rem;
+    color: #57C785; /* Yeşil Vurgu */
+    margin-bottom: 20px;
+}
+
+.iletisim-bilgileri p {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #f0f8ff;
+}
+
+.detaylar {
+    margin-bottom: 40px;
+}
+
+.detay-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+}
+
+.detay-item i {
+    color: #57C785;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* SOSYAL MEDYA İKONLARI */
+.sosyal-medya {
+    display: flex;
+    gap: 15px;
+}
+
+.sosyal-medya a {
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sosyal-medya a:hover {
+    color: #57C785;
+    transform: scale(1.1);
+}
+
+/* İLETİŞİM FORMU (SAĞ BLOK) */
+.iletisim-formu {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.iletisim-formu h3 {
+    color: #0D5F6F;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.form-grup {
+    margin-bottom: 20px;
+}
+
+.iletisim-formu input[type="text"],
+.iletisim-formu input[type="email"],
+.iletisim-formu input[type="tel"],
+.iletisim-formu select,
+.iletisim-formu textarea {
+    /* 🔥 Kritik Olan Yer: Genişliğin %100 olması 🔥 */
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+
+.iletisim-formu input:focus,
+.iletisim-formu select:focus,
+.iletisim-formu textarea:focus {
+    border-color: #57C785;
+    outline: none;
+    box-shadow: 0 0 5px rgba(87, 199, 133, 0.5);
+}
+
+.iletisim-formu textarea {
+    resize: vertical;
+}
+
+/* GÖNDER BUTONU */
+.gonder-btn {
+    font-family: 'Lexend Giga', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #57C785;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.gonder-btn:hover {
+    background: #0D5F6F;
+    transform: translateY(-2px);
+}
+
+
+/* ------------------------------------------- */
+/* YENİ FOOTER STİLLERİ (SADE VE NAVİGASYON ODAKLI) */
+/* ------------------------------------------- */
+
+footer {
+    background: #0D5F6F; /* Koyu Mavi Arka Plan */
+    color: #fff;
+    padding: 40px 40px;
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ANA FOOTER İÇERİK YAPISI */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ayrım Çizgisi */
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+/* FOOTER LOGO VE NAVİGASYON BLOKLARI */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.footer-logo img {
+    height: 40px; 
+}
+.footer-logo .logo-text h1 {
+    font-size: 18px;
+    color: #fff; 
+    letter-spacing: 1px;
+    font-weight: 700; 
+}
+.footer-logo .logo-text span {
+    font-size: 10px;
+    color: #57C785;
+    letter-spacing: 2px;
+}
+
+/* NAVİGASYON LİNKLERİ */
+.footer-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Lexend Giga', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #57C785;
+}
+
+/* SOSYAL MEDYA */
+.sosyal-medya-footer a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sosyal-medya-footer a:hover {
+    color: #57C785;
+    transform: scale(1.1);
+}
+
+/* COPYRIGHT VE TASARIM NOTU */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 968px) {
+    footer {
+        padding: 30px 20px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    .footer-nav {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    .sosyal-medya-footer {
+        margin-top: 10px;
+    }
+    .sosyal-medya-footer a {
+        margin: 0 10px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+
+/* ------------------------------------------- */
+/* BURGER MENÜ İKON STİLLERİ */
+/* ------------------------------------------- */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #0D5F6F; 
+    cursor: pointer;
+    z-index: 1001; 
+    padding: 10px;
+}
+
+
+/* ------------------------------------------- */
+/* RESPONSIVE TASARIM KURALLARI */
+/* ------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .hero-text-box h2 {
+        font-size: 2.5rem;
+    }
+    .hero-text-box {
+        padding: 30px 40px;
+        max-width: 90%;
+    }
+}
+
+/* MOBİL CİHAZLAR İÇİN DÜZENLEMELER (968px altı) */
+@media (max-width: 968px) {
+    
+    .header-container {
+        flex-direction: row; 
+        justify-content: space-between;
+        gap: 0;
+        padding: 10px 20px; 
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    nav {
+        display: none; 
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+    
+    /* Hizmetler Bölümü Mobil Düzenleme */
+    .hizmetler-alani {
+        padding: 60px 20px;
+    }
+    
+    .hizmet-blok,
+    .hizmet-blok.reverse {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .hizmet-gorsel {
+        order: -1; 
+        max-width: 80%; 
+    }
+
+    .hizmet-metin h3 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .hizmet-detay-btn {
+        justify-content: center; 
+    }
+    
+    /* Hakkımda Bölümü Mobil Düzenleme */
+    .hakkimda-icerik {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hakkimda-gorsel {
+        max-width: 100%;
+        order: -1; /* Fotoğrafı en üste al */
+    }
+
+    .hakkimda-metin h3 {
+        text-align: center;
+    }
+
+    .imza {
+        justify-content: center;
+    }
+
+    .hero-text-box h2 {
+        font-size: 2.5rem;
+    }
+    .hero-text-box {
+        padding: 30px 40px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 450px; 
+    }
+
+    .hero-text-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text-box p {
+        font-size: 1.1rem;
+    }
+
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .logo-text h1 {
+        font-size: 18px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+}

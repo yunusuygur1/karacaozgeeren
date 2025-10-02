@@ -1,0 +1,228 @@
+/* ------------------------------------------- */
+/* HAKKIMDA.CSS - SADECE HAKKIMDA SAYFASI İÇİN */
+/* ------------------------------------------- */
+
+/* ANA SAYFA STİLİNDEN ALINAN GENEL STİLLER (Tekrardan Kaçınma) */
+.hakkimda-detay-bolumu {
+    padding: 100px 0 80px 0;
+    background-color: #fff;
+    min-height: 85vh; 
+}
+
+.hakkimda-detay-bolumu h2 {
+    font-size: 2.8rem;
+    color: #0D5F6F;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 3px solid #57C785;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+}
+
+/* ------------------------------------------- */
+/* 1. ÜST BİYOGRAFİ VE FOTOĞRAF ALANI */
+/* ------------------------------------------- */
+
+.biyografi-ust {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.biyografi-foto {
+    flex: 0 0 35%;
+    max-width: 35%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.biyografi-foto img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.biyografi-metin {
+    flex: 1;
+}
+
+.biyografi-metin h3 {
+    font-size: 2rem;
+    color: #57C785; 
+    margin-bottom: 20px;
+    text-transform: none; /* İsim büyük harf olmasın */
+    font-family: 'Lexend Giga', sans-serif;
+}
+
+.biyografi-metin p {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.biyografi-metin strong {
+    color: #0D5F6F;
+}
+
+/* ------------------------------------------- */
+/* 2. MİSYON & VİZYON KARTLARI */
+/* ------------------------------------------- */
+
+.misyon-vizyon {
+    background-color: #f8f8f8;
+    padding: 60px 0;
+}
+
+.kart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.vizyon-kart {
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #0D5F6F;
+    transition: transform 0.3s ease;
+}
+
+.vizyon-kart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.vizyon-kart i {
+    font-size: 3rem;
+    color: #57C785;
+    margin-bottom: 15px;
+}
+
+.vizyon-kart h4 {
+    font-size: 1.5rem;
+    color: #0D5F6F;
+    margin-bottom: 15px;
+}
+
+.vizyon-kart p {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* ------------------------------------------- */
+/* 3. UZMANLIK ALANLARI VE SERTİFİKALAR */
+/* ------------------------------------------- */
+
+.sertifika-alani {
+    padding: 80px 0;
+}
+
+.sertifika-alani h3 {
+    font-size: 2rem;
+    color: #0D5F6F;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.uzmanlik-listesi {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.uzmanlik-listesi li {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px;
+    background-color: #f0fff4; 
+    border-left: 5px solid #57C785;
+    border-radius: 6px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.uzmanlik-listesi li i {
+    color: #0D5F6F;
+    font-size: 1.5rem;
+}
+
+.sertifika-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.sertifika-gorsel {
+    width: 100%;
+    height: 150px; 
+    background-color: #eee; 
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ------------------------------------------- */
+/* RESPONSIVE KURALLAR */
+/* ------------------------------------------- */
+
+@media (max-width: 968px) {
+    .hakkimda-detay-bolumu {
+        padding-top: 80px;
+    }
+    .biyografi-ust {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    .biyografi-foto {
+        max-width: 80%;
+        order: -1; 
+    }
+    .biyografi-metin h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .kart-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .uzmanlik-listesi {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .sertifika-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .sertifika-gorsel {
+        height: 120px;
+    }
+}

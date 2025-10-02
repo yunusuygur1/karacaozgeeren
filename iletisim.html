@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Karaca Özge Eren</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&family=Lexend+Giga&family=Reddit+Sans+Condensed:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="iletisim.css">
+    
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html#anasayfa" class="logo">
+                <img src="favicon.png" alt="Karaca Özge Eren Logo">
+                <div class="logo-text">
+                    <h1>KARACA ÖZGE EREN</h1> 
+                    <span>COACHING & PHYSIOTHERAPY</span>
+                </div>
+            </a>
+            <nav class="main-nav"> 
+                <a href="index.html#anasayfa">Ana Sayfa</a>
+                <a href="hizmetler.html">Hizmetler</a>
+                <a href="hakkimda.html">Hakkımda</a>
+                <a href="index.html#portfolyo">Portfolyo</a>
+                <a href="iletisim.html">İletişim</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div style="height: 75px;"></div>
+    
+    <section class="iletisim-detay-bolumu">
+        <div class="container">
+            <h2 class="section-heading">Bize Ulaşın ve Randevu Alın</h2>
+            
+            <div class="bilgi-kartlari-grid">
+                
+                <div class="bilgi-kart">
+                    <i class="fas fa-phone"></i>
+                    <div class="bilgi-detay">
+                        <h4>Telefon (Birebir Ders / Randevu)</h4>
+                        <a href="tel:+905551234567">+90 (555) 123 45 67</a>
+                    </div>
+                </div>
+                
+                <div class="bilgi-kart">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="bilgi-detay">
+                        <h4>WhatsApp Hattı</h4>
+                        <a href="https://wa.me/905551234567" target="_blank">WhatsApp'tan Yazın</a>
+                    </div>
+                </div>
+                
+                <div class="bilgi-kart">
+                    <i class="fas fa-envelope"></i>
+                    <div class="bilgi-detay">
+                        <h4>E-posta Adresi</h4>
+                        <a href="mailto:info@karacaozgeeren.com">info@karacaozgeeren.com</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="google-maps tam-genislik">
+                <h3>Stüdyo Konumu</h3>
+                <div class="map-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Yenidoğan, Sancaktepe, İstanbul&t=&z=14&ie=UTF8&iwloc=B&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p style="font-family: 'Reddit Sans Condensed', sans-serif; font-size: 0.9rem; margin-top: 10px; text-align: center; color: #555;">Konum: Yenidoğan, Yunus Emre Mahallesi (Randevu ile detaylı adres verilecektir.)</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                
+                <a href="index.html#anasayfa" class="footer-logo">
+                    <img src="favicon.png" alt="Karaca Özge Eren Logo">
+                    <div class="logo-text">
+                        <h1>KARACA ÖZGE EREN</h1> 
+                        <span>COACHING & PHYSIOTHERAPY</span>
+                    </div>
+                </a>
+
+                <nav class="footer-nav">
+                    <a href="hizmetler.html">Hizmetler</a>
+                    <a href="hakkimda.html">Hakkımda</a>
+                    <a href="iletisim.html">İletişim</a>
+                </nav>
+
+                <div class="sosyal-medya-footer">
+                    <a href="https://www.instagram.com/karacaeren33/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/karaca-%C3%B6zge-eren-3068b927b/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Karaca Özge Eren | Tüm Hakları Saklıdır.</p>
+                <p class="tasarim-notu">Web Tasarım & Geliştirme: K.Ö.E.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Akıllı Header ve Burger Menü Kodu
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        // AKILLI HEADER KODU
+        window.addEventListener('scroll', () => {
+            // Scroll pozisyonu 150px'ten büyükse ve aşağı kaydırılıyorsa gizle
+            if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                header.classList.add('hidden');
+            } 
+            // Yukarı kaydırılıyorsa veya en üstteyse göster
+            else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = window.scrollY; // Son scroll pozisyonunu güncelle
+        });
+
+
+        // BURGER MENÜ KODU (Mobil için)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        if (menuToggle) { 
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            // Menüdeki linke tıklanınca menüyü kapat
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

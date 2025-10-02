@@ -1,0 +1,136 @@
+/* ------------------------------------------- */
+/* İLETİŞİM.CSS - SADECE İLETİŞİM SAYFASI İÇİN */
+/* ------------------------------------------- */
+
+/* GENEL BÖLÜM STİLİ */
+.iletisim-detay-bolumu {
+    padding: 100px 0 80px 0;
+    background-color: #f8f8f8;
+    min-height: 85vh; 
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px; 
+}
+
+.iletisim-detay-bolumu h2 {
+    font-size: 2.8rem;
+    color: #0D5F6F;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 3px solid #57C785;
+    display: block;
+    width: fit-content;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 🔥 BİLGİ KARTLARINI ORTALAYAN VE YATAY YERLEŞTİREN GRİD */
+.bilgi-kartlari-grid {
+    display: grid;
+    /* 3 eşit sütun oluşturduk */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 60px; /* Haritadan önce boşluk */
+}
+
+/* BİLGİ KARTLARI STİLİ */
+.bilgi-kart {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column; /* İçeriği dikey ortalamak için */
+    align-items: center; /* İçerik (ikon, metin) yatayda ortala */
+    text-align: center;
+    gap: 15px;
+    border-left: 5px solid #0D5F6F;
+    transition: transform 0.3s ease, border-left-color 0.3s ease;
+}
+.bilgi-kart:hover {
+    transform: translateY(-3px);
+    border-left-color: #57C785;
+}
+
+.bilgi-kart i {
+    font-size: 3rem; /* İkonu büyüttük */
+    color: #57C785;
+}
+
+.bilgi-detay h4 {
+    font-family: 'Lexend Giga', sans-serif;
+    font-size: 1.2rem;
+    color: #0D5F6F;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.bilgi-detay p, .bilgi-detay a {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+}
+.bilgi-detay a:hover {
+    color: #57C785;
+    text-decoration: underline;
+}
+
+/* 🔥 HARİTA TAM GENİŞLİK ALAN KURALI */
+.google-maps.tam-genislik {
+    margin-top: 20px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.google-maps h3 {
+    font-size: 1.8rem;
+    color: #0D5F6F;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.map-container {
+    height: 500px; /* Haritayı daha da büyüttük */
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+/* RESPONSIVE KURALLAR */
+@media (max-width: 968px) {
+    .container {
+        padding: 0 20px;
+    }
+    .bilgi-kartlari-grid {
+        grid-template-columns: 1fr; /* Mobil görünümde kartları alt alta getir */
+    }
+    .bilgi-kart {
+        flex-direction: row; 
+        text-align: left;
+        align-items: center; 
+        gap: 20px;
+        padding: 20px;
+    }
+    .bilgi-kart i {
+        font-size: 2.5rem;
+    }
+    .google-maps {
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .map-container {
+        height: 300px;
+    }
+}
