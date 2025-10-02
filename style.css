@@ -61,14 +61,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* HEADER STİLLERİ (Sabit Konum) */
 header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
+    position: fixed; /* Header'ı ekranın en üstüne sabitler */
     top: 0;
-    z-index: 1000;
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out; 
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Diğer her şeyin üstünde görünmesini sağlar */
+    background-color: #ffffff; /* Arka planı beyaz yap */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Hafif gölge ekleyebilirsin */
+    transition: top 0.3s;
 }
 
 /* JS İLE EKLENECEK GİZLENME SINIFI (AKILLI HEADER) */
@@ -186,11 +186,21 @@ nav a:hover::after {
 /* HERO SLIDER STİLLERİ */
 /* ------------------------------------------- */
 
+/* Header sabit olduğu için, tüm ana bölümlere üst boşluk eklenmeli */
+.hero-slider,
+.hizmetler-alani,
+.hakkimda-alani,
+.iletisim-alani {
+    /* Başlangıçta 75px bir boşluk tanımlıyoruz. Mobil kısımda bunu ayarlayacağız. */
+    padding-top: 75px; 
+}
+
 .hero-slider {
     position: relative;
     width: 100%;
     height: 550px; 
     overflow: hidden;
+    padding-top: 0; /* Hero slider tam ekran olduğu için padding'i içeriği ortalamada kullanacağız */
 }
 
 .slides-container {
@@ -233,6 +243,8 @@ nav a:hover::after {
     align-items: center;
     z-index: 50; 
     text-align: center;
+    /* Hero içeriğini header'ın altından başlatmak için */
+    padding-top: 75px; 
 }
 
 .hero-text-box {
@@ -312,7 +324,9 @@ nav a:hover::after {
 /* ------------------------------------------- */
 
 .hizmetler-alani {
-    padding: 80px 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 80px;
     background-color: #f8f8f8;
 }
 
@@ -429,7 +443,9 @@ nav a:hover::after {
 /* ------------------------------------------- */
 
 .hakkimda-alani {
-    padding: 80px 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 80px;
     background-color: #ffffff; /* Beyaz arka plan */
 }
 
@@ -642,7 +658,9 @@ nav a:hover::after {
 /* ------------------------------------------- */
 
 .iletisim-alani {
-    padding: 80px 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 80px;
     background: linear-gradient(135deg, #0D5F6F 0%, #1a7e93 100%); /* Koyu Mavi-Yeşil Ton */
     color: white;
 }
@@ -949,27 +967,40 @@ footer .container {
         display: block; 
     }
 
+    /* MOBİL MENÜ DÜZELTME: Beyaz boşluğu ve link kaybolmasını çözer */
     nav {
-        display: none; 
+        /* display: none; kaldırıldı, onun yerine max-height kullanıyoruz */
         position: absolute;
-        top: 70px; 
+        top: 100%; /* Header'ın hemen altından başla */
         left: 0;
         width: 100%;
-        background: #fff;
+        
+        /* Arka planı header'ın renginden farklı (koyu) yapıyoruz ki linkler gözüksün */
+        background: #0D5F6F; 
+        
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         flex-direction: column;
         text-align: center;
-        padding: 10px 0;
+        padding: 0; /* Padding linklerin içinde olacak */
         z-index: 999;
+        
+        /* Menü kapalıyken gizli kalmasını sağlayan yeni kod */
+        max-height: 0; 
+        overflow: hidden; /* Taşmayı gizle */
+        transition: max-height 0.3s ease-in-out;
     }
 
     nav.active {
-        display: flex;
+        display: flex; /* Geri koydum, ama esas kontrol max-height ile yapılıyor */
+        max-height: 500px; /* Menü açıldığında görünecek yükseklik */
+        /* Linklerin kaybolması sorununu çözmek için menü arkaplan rengi #0D5F6F oldu */
     }
 
     nav a {
         padding: 15px 0;
-        border-bottom: 1px solid #eee;
+        /* Mobil menü koyu arkaplanlı olduğu için link rengini beyaz yapıyoruz */
+        color: #ffffff; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 16px;
     }
 
@@ -977,9 +1008,24 @@ footer .container {
         border-bottom: none;
     }
     
+    /* Header sabit olduğu için, tüm ana bölümlerin başlangıcına boşluk ekle */
+    .hero-slider .hero-content, /* Hero içeriği header'ın altından başlamalı */
+    .hizmetler-alani,
+    .hakkimda-alani,
+    .iletisim-alani {
+        padding-top: 70px; /* Header yüksekliği (yaklaşık 70px) kadar boşluk */
+    }
+    
+    .hero-slider {
+        /* Hero slider'ın kendisi tam ekran kaplayacağı için burada padding-top: 0 */
+        padding-top: 0; 
+    }
+    
     /* Hizmetler Bölümü Mobil Düzenleme */
     .hizmetler-alani {
-        padding: 60px 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 60px;
     }
     
     .hizmet-blok,
@@ -1005,6 +1051,12 @@ footer .container {
     }
     
     /* Hakkımda Bölümü Mobil Düzenleme */
+    .hakkimda-alani {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 60px;
+    }
+    
     .hakkimda-icerik {
         flex-direction: column;
         gap: 40px;
@@ -1029,6 +1081,23 @@ footer .container {
     .hero-text-box {
         padding: 30px 40px;
         max-width: 90%;
+    }
+    
+    /* İletişim Alanı Mobil Düzenleme */
+    .iletisim-alani {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 60px;
+    }
+    
+    .iletisim-icerik {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .iletisim-bilgileri h3,
+    .iletisim-formu h3 {
+        text-align: center;
     }
 }
 

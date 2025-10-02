@@ -9,38 +9,42 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Convergence&family=Lexend+Giga&family=Reddit+Sans+Condensed:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&family=Lexend+Giga&family=Reddit+Sans+Condensed:wght@200..900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
     
     <link rel="stylesheet" href="style.css">
     
+    <!-- Hizmetlere özel CSS dosyasının adı "hizmetler.css" olarak varsayılmıştır. -->
     <link rel="stylesheet" href="hizmetler.css">
     
 </head>
 <body>
     <header>
         <div class="header-container">
-            <a href="index.html#anasayfa" class="logo">
+            <a href="index.html" class="logo">
                 <img src="favicon.png" alt="Karaca Özge Eren Logo">
                 <div class="logo-text">
                     <h1>KARACA ÖZGE EREN</h1> 
                     <span>COACHING & PHYSIOTHERAPY</span>
                 </div>
             </a>
+            
+            <!-- Burger ikonunu koruduk -->
+            <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav class="main-nav"> 
                 <a href="index.html">Ana Sayfa</a>
                 <a href="hizmetler.html">Hizmetler</a>
                 <a href="hakkimda.html">Hakkımda</a>
                 <a href="iletisim.html">İletişim</a>
             </nav>
-            <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
-                <i class="fas fa-bars"></i>
-            </button>
+            
+            <!-- 🔥 "Bize Ulaş" butonu kaldırıldı 🔥 -->
+            
         </div>
-    </header>
-
-    <div style="height: 75px;"></div>
-    
+    </header>    
     <section class="detay-bolumu">
         <div class="container">
             <h2 class="section-heading">Detaylı Hizmetlerimiz ve Yaklaşımımız</h2>
@@ -165,7 +169,7 @@
         <div class="container">
             <div class="footer-content">
                 
-                <a href="index.html#anasayfa" class="footer-logo">
+                <a href="index.html" class="footer-logo">
                     <div class="logo-text">
                         <h1>KARACA ÖZGE EREN</h1> 
                         <span>COACHING & PHYSIOTHERAPY</span>
@@ -207,17 +211,22 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
 
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').endsWith('.html')) {
-                     mainNav.classList.remove('active');
-                }
+        // Menü ikonuna tıklandığında menüyü aç/kapat
+        if (menuToggle && mainNav) {
+             menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
             });
-        });
+
+            // Menüdeki linklere tıklandığında menüyü kapat
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Ana sayfadaki section linklerine veya diğer sayfalara geçiş yapıldığında menü kapanır
+                    if (mainNav.classList.contains('active')) {
+                         mainNav.classList.remove('active');
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html>
