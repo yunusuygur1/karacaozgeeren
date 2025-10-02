@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karaca Özge Eren - Coaching & Physiotherapy</title>
+        <link rel="icon" type="image/png" href="favicon.png">
+
     
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +15,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="preloader">
+        <img src="favicon.png" alt="Yükleniyor Logo" class="preloader-logo">
+    </div>
     <header>
         <div class="header-container">
             
@@ -136,7 +141,7 @@
             <div class="hakkimda-icerik">
                 
                 <div class="hakkimda-gorsel">
-                    <img src="images/profil-fotografi.jpg" alt="Karaca Özge Eren Profil Fotoğrafı">
+                    <img src="images/anasayfafoto.jpeg  " alt="Karaca Özge Eren Profil Fotoğrafı">
                 </div>
 
                <div class="hakkimda-metin">
@@ -171,41 +176,31 @@
         <div class="hikaye-grid">
             
             <div class="hikaye-kart">
-                <div class="hikaye-gorsel" style="background-image: url('images/postur-once-sonra.jpg');">
+                <div class="hikaye-gorsel" style="background-image: url('images/FYzyoterapi.jpg');">
                     <span class="etiket fizyo">Fizyoterapi & Postür</span>
                 </div>
                 <div class="hikaye-metin">
                     <h4>Kronik Ağrıdan Performans Zirvesine</h4>
                     <p>
-                        "3 aylık program sonunda duruşum tamamen düzeldi, artık masa başında ağrımıyor ve fitness seviyem hiç olmadığı kadar iyi." 
-                        <span class="kisaltma">— M. Y.</span>
                     </p>
                 </div>
             </div>
 
             <div class="hikaye-kart">
-                <div class="hikaye-gorsel" style="background-image: url('images/boks-donusum.jpg');">
+                <div class="hikaye-gorsel" style="background-image: url('images/nasil-boks-yapilir.jpg');">
                     <span class="etiket fitness">Boks & Fitness</span>
                 </div>
                 <div class="hikaye-metin">
                     <h4>Disiplinle Gelen Vücut Kompozisyonu</h4>
-                    <p>
-                        "Hedefim 8 kg yağ yakmaktı. Karaca Hoca'nın boks ağırlıklı antrenmanları ve koçluğu sayesinde 4 ayda bu hedefin üzerine çıktım." 
-                        <span class="kisaltma">— A. E.</span>
-                    </p>
                 </div>
             </div>
             
             <div class="hikaye-kart">
-                <div class="hikaye-gorsel" style="background-image: url('images/coaching-odak.jpg');">
+                <div class="hikaye-gorsel" style="background-image: url('images/zihinsel-1284687071-170667a-2.jpeg');">
                     <span class="etiket coaching">Zihinsel Koçluk</span>
                 </div>
                 <div class="hikaye-metin">
                     <h4>Sınırları Aşma ve Motivasyon</h4>
-                    <p>
-                        "Koçluk seansları sayesinde ertelemeyi bıraktım. Spordaki disiplinimi iş hayatıma da taşıdım. En büyük dönüşüm zihnimde oldu." 
-                        <span class="kisaltma">— D. K.</span>
-                    </p>
                 </div>
             </div>
 
@@ -251,7 +246,6 @@
             <div class="footer-content">
 
                 <a href="index.html" class="footer-logo">
-                    <img src="favicon.png" alt="Karaca Özge Eren Logo">
                     <div class="logo-text">
                         <h1>KARACA ÖZGE EREN</h1> 
                         <span>COACHING & PHYSIOTHERAPY</span>
@@ -275,7 +269,8 @@
                 <p>Gizlilik Politikası | Kullanım Şartları</p>
             </div>
         </div>
-    </footer>    <script>
+    </footer>    
+    <script>
         // 1. SLIDER ve MOUSE İŞLEMLERİ
         const slides = document.querySelectorAll('.slide');
         const headlineElement = document.getElementById('slider-headline');
@@ -357,6 +352,15 @@
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
             });
+        });
+
+        // 🔥🔥🔥 BURAYA EKLENDİ: PRELOADER GİZLEME KODU 🔥🔥🔥
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                // Opaklık animasyonu için 'hidden' sınıfını ekle
+                preloader.classList.add('hidden');
+            }
         });
 
     </script>

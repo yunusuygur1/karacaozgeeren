@@ -1,3 +1,43 @@
+#preloader {
+    position: fixed; /* Ekranın hep aynı yerinde kalır */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* Arka plan rengini beyaz yap */
+    display: flex; /* İçeriği ortalamak için */
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+    z-index: 9999; /* En üstte görünmesini sağla */
+    transition: opacity 0.5s ease, visibility 0s 0.5s; /* Kaybolma animasyonu */
+}
+
+.preloader-logo {
+    width: 150px; /* Logonun büyüklüğünü ayarla */
+    height: auto;
+    /* Logonun yüklenirken hafifçe yanıp sönmesi için animasyon */
+    animation: pulse 1.5s infinite; 
+}
+
+/* YÜKLEME TAMAMLANDIĞINDA KAYBOLMA SINIFI */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* İsteğe bağlı animasyon */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* %5 daha büyüt */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 * {
     margin: 0;
     padding: 0;

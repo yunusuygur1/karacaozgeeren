@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | Karaca Özge Eren</title>
+            <link rel="icon" type="image/png" href="favicon.png">
+
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +18,10 @@
     
 </head>
 <body>
+<body>
+    <div id="preloader">
+        <img src="favicon.png" alt="Yükleniyor Logo" class="preloader-logo">
+    </div>
     <header>
         <div class="header-container">
             <a href="index.html#anasayfa" class="logo">
@@ -26,10 +32,9 @@
                 </div>
             </a>
             <nav class="main-nav"> 
-                <a href="index.html#anasayfa">Ana Sayfa</a>
+                <a href="index.html">Ana Sayfa</a>
                 <a href="hizmetler.html">Hizmetler</a>
                 <a href="hakkimda.html">Hakkımda</a>
-                <a href="index.html#portfolyo">Portfolyo</a>
                 <a href="iletisim.html">İletişim</a>
             </nav>
             <button class="menu-toggle" aria-label="Menüyü Aç/Kapat">
@@ -50,7 +55,7 @@
                     <i class="fas fa-phone"></i>
                     <div class="bilgi-detay">
                         <h4>Telefon (Birebir Ders / Randevu)</h4>
-                        <a href="tel:+905551234567">+90 (555) 123 45 67</a>
+                        <a href="tel:+905364011659">+90 (536) 401 16 59</a>
                     </div>
                 </div>
                 
@@ -58,15 +63,15 @@
                     <i class="fab fa-whatsapp"></i>
                     <div class="bilgi-detay">
                         <h4>WhatsApp Hattı</h4>
-                        <a href="https://wa.me/905551234567" target="_blank">WhatsApp'tan Yazın</a>
+                        <a href="https://wa.me/+905364011659?text=Merhaba%20hizmetleriniz%20ile%20ilgili%20bilgi%20almak%20istiyorum." target="_blank">WhatsApp'tan Yazın</a>
                     </div>
-                </div>
+                </div>  
                 
                 <div class="bilgi-kart">
                     <i class="fas fa-envelope"></i>
                     <div class="bilgi-detay">
                         <h4>E-posta Adresi</h4>
-                        <a href="mailto:info@karacaozgeeren.com">info@karacaozgeeren.com</a>
+                        <a href="mailto:karacaozge33@gmail.com">karacaozge33@gmail.com</a>
                     </div>
                 </div>
                 
@@ -96,7 +101,6 @@
             <div class="footer-content">
                 
                 <a href="index.html#anasayfa" class="footer-logo">
-                    <img src="favicon.png" alt="Karaca Özge Eren Logo">
                     <div class="logo-text">
                         <h1>KARACA ÖZGE EREN</h1> 
                         <span>COACHING & PHYSIOTHERAPY</span>
@@ -115,9 +119,9 @@
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>© 2025 Karaca Özge Eren | Tüm Hakları Saklıdır.</p>
-                <p class="tasarim-notu">Web Tasarım & Geliştirme: K.Ö.E.</p>
+           <div class="footer-bottom">
+                <p>&copy; 2025 Karaca Özge Eren | Tüm Hakları Saklıdır.</p>
+                <p>Gizlilik Politikası | Kullanım Şartları</p>
             </div>
         </div>
     </footer>
@@ -158,6 +162,13 @@
                 });
             });
         }
+        window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Opaklık animasyonu için 'hidden' sınıfını ekle
+        preloader.classList.add('hidden');
+    }
+});
     </script>
 </body>
 </html>
